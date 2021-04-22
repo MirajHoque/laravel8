@@ -14,5 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('user');
+    return redirect('about');
+});
+
+/* 
+Route::get('/', function () { ->here / is url 
+    return view('user'); ->here (user) is page
+*/
+
+/*
+Route::get('/about', function() {
+    return view('about');
+});
+*/
+Route::view('about', 'about');
+Route::view('contact', 'contact');
+
+//pass and get data from url
+
+Route::get('/{name}', function ($name) {
+    return view('hello',['username'=>$name]);
+    
 });
