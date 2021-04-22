@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*
+Route::get('users/{name}', function ($name) {
+    return view('users',['userName'=>$name]);
+});
+*/
+
+//Route::view('users/{name}', 'users');
+// in this approach we cannot pass the data from the url to view
+
+//call view from controller
+Route::get('users/{Username}', [UsersController::class, 'loadView']);
