@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::get('url', 'controller file');
+//Route::get('users', 'Users@index'); //-> this is laravel 7 syntax
+
+Route::get('users/{userName}', [Users::class, 'index']);
