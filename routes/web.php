@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserAuth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('logIn', function(){
+    if( session()->has('user') ){
+        return redirect('profile');
+    }
+    return view('logIn');
+});
+Route::post('user', [UserAuth::class, 'UserLogIn']);
+Route::view('profile', 'profile');
+
+Route::get('logOut', function(){
+    if( session()->has('user') ){ //has boolean method, return true if session value exist
+        session()->pull('user');
+    }
+    return redirect('logIn');
 });
