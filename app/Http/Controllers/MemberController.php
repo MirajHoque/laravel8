@@ -19,4 +19,18 @@ class MemberController extends Controller
         return redirect('list');
 
     }
+    function showData($id){
+        $data= Member::find($id);
+        return view('edit', ['member'=> $data]);
+
+    }
+    function update(Request $req){
+        //return $req->input();
+        $data= Member::find($req->id);
+        $data->name= $req->name;
+        $data->email= $req->email;
+        $data->address= $req->address;
+        $data->save();
+        return redirect('list');
+    }
 }

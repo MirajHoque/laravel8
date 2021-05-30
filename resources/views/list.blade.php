@@ -16,7 +16,11 @@
     <td>{{ $element['name'] }}</td>
     <td>{{ $element['email'] }}</td>
     <td>{{ $element['address'] }}</td>
-    <td><a href={{ 'delete/'. $element['id'] }}>Delete</a></td>
+    <td>
+      <a href={{ 'delete/'. $element['id'] }}>Delete</a>
+      <a href={{ 'edit/'. $element['id'] }}>Edit</a>
+    </td>
+    
     
   </tr>
       
