@@ -49,5 +49,12 @@ class DeviceController extends Controller
             return ["Result"=>"Delete operationn failed"];
         }
     }
+
+    function search($name){
+        //return Device::where("name", $name)->get();
+        
+        //as like query
+        return Device::where("name", "like", "%".$name."%")->get();
+    }
     
 }

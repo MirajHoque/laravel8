@@ -22,3 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('add', [DeviceController:: class, 'add']);
 Route::put('update', [DeviceController::class, 'update']);
 Route::delete('delete/{id}', [DeviceController::class, 'delete']);
+Route::get('search/{name}', [DeviceController::class, 'search']);
