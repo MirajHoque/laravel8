@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,5 @@ Route::put('update', [DeviceController::class, 'update']);
 Route::delete('delete/{id}', [DeviceController::class, 'delete']);
 Route::get('search/{name}', [DeviceController::class, 'search']);
 Route::post('save', [DeviceController::class, 'testData']);
-Route::apiResource('member', MemberController::class);
+Route::apiResource('member', MemberController::class); //MemberController::class : by default its return array of routes
+Route::post('upload', [FileController::class, 'upload']);
